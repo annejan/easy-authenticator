@@ -47,7 +47,8 @@ class UserRepository {
             'username' => $user->username,
         ];
 
-        if (!empty(array_diff($socialData, $dbData))) {
+        $diff = array_diff($socialData, $dbData);
+        if (!empty($diff)) {
             $user->avatar = $userData->avatar;
             $user->email = $userData->email;
             $user->name = $userData->name;
